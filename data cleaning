@@ -1,0 +1,15 @@
+df.info()
+
+df.dropna(inplace=True)
+
+df['hours_played'] = df['ms_played']/1000/60/60
+
+df['ts'] = pd.to_datetime(df['ts'])
+
+df['date'] = df['ts'].dt.date
+
+df['hour'] = df['ts'].dt.hour
+
+df['day'] = df['ts'].dt.day_name()
+
+df['month'] = df['ts'].dt.month_name()
