@@ -1,0 +1,28 @@
+top_artist = (
+    df.groupby("master_metadata_album_artist_name")
+      .size()
+      .sort_values(ascending=False)
+      .head(10)
+)
+
+print(top_artist)
+import matplotlib.pyplot as plt
+
+top_artist.plot(kind='bar')
+
+plt.title("Top Artists")
+
+plt.show()
+top_songs = (
+    df.groupby("master_metadata_track_name")
+      .size()
+      .sort_values(ascending=False)
+      .head(10)
+)
+
+print(top_songs)
+import seaborn as sns
+
+sns.histplot(df['hour'], bins=24)
+
+plt.title("Listening Hours")
